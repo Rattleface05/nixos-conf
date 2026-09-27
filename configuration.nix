@@ -12,7 +12,7 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
+    /etc/nixos/hardware-import.nix
 
     # Packages
     ./pkgs/pkgs.nix
@@ -188,7 +188,6 @@
   programs.gamemode.enable = true;
 
   # GPU Screen Recoder
-  programs.gpu-screen-recorder.enable = true;
   programs.gpu-screen-recorder.ui.enable = true;
 
   # Appimages
