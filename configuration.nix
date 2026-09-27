@@ -44,12 +44,12 @@
 
   };
   # Use CachyOS kernel.
-  #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
   # For lto extra power bitch
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
 
-  # Vanilla kernel
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # Xanmod kernel
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   networking.hostName = "cratita"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
