@@ -32,7 +32,7 @@
       configurationLimit = 7;
       efiSupport = true;
       device = "nodev";
-      useOSProber = true;
+      useOSProber = false;
       extraEntries = ''
         menuentry "UEFI Firmware Settings" {
           fwsetup
@@ -189,6 +189,10 @@
 
   # GPU Screen Recoder
   programs.gpu-screen-recorder.ui.enable = true;
+  programs.gpu-screen-recorder.enable = true;
+
+  systemd.services.gpu-screen-recorder.enable = false;
+  systemd.user.services.gpu-screen-recorder.enable = false;
 
   # Appimages
   programs.appimage.binfmt = true;
@@ -241,6 +245,9 @@
 
   # Nix LSP stuff
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
+  # Turn off firmware updates
+  # services.fwupd.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

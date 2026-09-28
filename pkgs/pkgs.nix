@@ -18,9 +18,13 @@
     rustc
     cargo
     vscode
+
+    # KDE stuff
     kdePackages.kate
     kdePackages.sddm-kcm
     kdePackages.filelight
+    plasma-panel-colorizer
+
     gcc
     ventoy-full-qt
     valgrind
@@ -61,6 +65,11 @@
     qbittorrent-enhanced
     haguichi
     logmein-hamachi
+
+    # Fuck this shit
+    # gpu-screen-recorder-ui
+    # gpu-screen-recorder
+
     btop
     htop
     btrfs-progs
