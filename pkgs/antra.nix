@@ -27,6 +27,13 @@ appimageTools.wrapType2 {
     pkgs.libsoup_3
   ];
 
+  # PICTURES DON'T SHOW UP WITHOUT THIS
+  extraBwrapArgs = [
+    "--setenv"
+    "GIO_EXTRA_MODULES"
+    "${glib-networking}/lib/gio/modules"
+  ];
+
   extraInstallCommands = ''
     install -m 444 -D ${appimageContents}/Antra.desktop \
       $out/share/applications/${pname}.desktop
@@ -36,11 +43,6 @@ appimageTools.wrapType2 {
 
     install -m 444 -D ${appimageContents}/Antra.png \
       $out/share/icons/hicolor/512x512/apps/${pname}.png
-  '';
-
-  postFixup = ''
-    wrapProgram $out/bin/${pname} \
-      --prefix GIO_EXTRA_MODULES : ${glib-networking}/lib/gio/modules
   '';
 
   meta = {
