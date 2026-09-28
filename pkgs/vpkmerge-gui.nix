@@ -47,14 +47,11 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    # The .deb extracts into usr/
     mkdir -p $out
     cp -r usr/* $out/
 
-    # Drop any redundant documentation if needed
     rm -rf $out/share/doc
 
-    # Create the convenience symlink from vpkmerge-gui to vpkmerge
     ln -s $out/bin/vpkmerge-gui $out/bin/vpkmerge
 
     runHook postInstall
