@@ -169,4 +169,5 @@
     bashrcExtra = builtins.readFile ./.bashrc;
   };
 
+  programs.discord.enable = true;
 }
