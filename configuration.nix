@@ -44,9 +44,9 @@
 
   };
   # Use CachyOS kernel.
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
   # For lto extra power bitch
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
 
   # Xanmod kernel
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
