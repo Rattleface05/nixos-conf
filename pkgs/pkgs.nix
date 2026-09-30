@@ -8,6 +8,7 @@
     neovim
     signal-desktop
     croc
+    discord
     openssh
     alacritty
     ghostty
