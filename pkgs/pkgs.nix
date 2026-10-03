@@ -113,7 +113,7 @@
     wine
 
     # Nix User Repository pkgs
-    nur.repos.forkprince.fluxer-canary-bin
+    nur.repos.lonerOrz.fluxer
 
     # YAMIS
     (pkgs.callPackage ./yamis.nix { })
