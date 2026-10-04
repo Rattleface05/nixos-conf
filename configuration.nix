@@ -51,6 +51,15 @@
   # Xanmod kernel
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
+  # Zswap
+  boot.zswap = {
+    enable = true;
+    maxPoolPercent = 25;
+    shrinkerEnabled = true;
+    compressor = "zstd";
+    acceptThresholdPercent = 90;
+  };
+
   networking.hostName = "cratita"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
