@@ -8,7 +8,21 @@
   pkgs,
   ...
 }:
+let
+  # Kernel Customizations
+  kernel = pkgs.cachyosKernels.linux-cachyos-latest.override {
 
+    # Customize CachyOS settings
+    cpusched = "rt-bore";
+    # lto = "thin";
+    # autofdo = "true";
+    processorOpt = "native";
+    hzTicks = "1000";
+    bbr3 = true;
+
+    rt = true;
+  };
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -44,9 +58,20 @@
 
   };
   # Use CachyOS kernel.
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
-  # For lto extra power bitch
-  # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+  boot = {
+    # For Non-LTO kernels
+    kernelPackages = pkgs.linuxKernel.packagesFor kernel;
+
+    # For LTO kernels, helpers.kernelModuleLLVMOverride fixes compilation for some
+    # out-of-tree modules in nixpkgs.
+    # kernelPackages =
+    #   let
+    #     # helpers.nix provides a few utilities for building kernel with LTO.
+    #     # I haven't figured out a clean way to expose it in flakes.
+    #     helpers = pkgs.callPackage "${inputs.nix-cachyos-kernel.outPath}/helpers.nix" { };
+    #   in
+    #   helpers.kernelModuleLLVMOverride (pkgs.linuxKernel.packagesFor kernel);
+  };
 
   # Xanmod kernel
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
