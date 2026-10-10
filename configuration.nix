@@ -21,6 +21,9 @@ let
     bbr3 = true;
 
     rt = true;
+
+    # Personal tweaks
+    cachyosConfigFile = ./kernel/.config;
   };
 in
 {
