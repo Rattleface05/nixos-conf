@@ -274,6 +274,13 @@ in
   # Optimize store
   nix.settings.auto-optimise-store = true;
 
+  # Automatic Garbace Collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   # Max 2 jobs
   # nix.settings.max-jobs = 2;
 
