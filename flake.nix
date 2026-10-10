@@ -29,8 +29,6 @@
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
 
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,7 +45,6 @@
       home-manager,
       lazyvim,
       aagl,
-      determinate,
       ...
     }@inputs:
     {
@@ -93,8 +90,6 @@
           # Nix User Repo enabling
           nur.modules.nixos.default
 
-          # DeterminateSystems Nix
-          determinate.nixosModules.default
 
           # Home Manager
           home-manager.nixosModules.default
