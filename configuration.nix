@@ -19,6 +19,7 @@ let
     processorOpt = "native";
     hzTicks = "1000";
     bbr3 = true;
+    ccHarder = true;
 
     rt = true;
 
