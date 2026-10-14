@@ -24,7 +24,7 @@ let
     rt = true;
 
     # Personal tweaks
-    cachyosConfigFile = ./kernel/.config;
+    cachyosConfigFile = ./kernel/.config.unstable;
   };
 in
 {
