@@ -61,7 +61,7 @@
     imgbrd-grabber
     audacity
     microcode-amd
-    bottles
+    (pkgs.bottles.override { removeWarningPopup = true; })
     qbittorrent-enhanced
     haguichi
     logmein-hamachi
