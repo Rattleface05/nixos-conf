@@ -25,6 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
@@ -45,6 +47,7 @@
       home-manager,
       lazyvim,
       aagl,
+      minegrub-theme,
       ...
     }@inputs:
     {
@@ -57,6 +60,9 @@
         modules = [
           # Your normal NixOS configuration
           ./configuration.nix
+
+          # Minegrub
+          minegrub-theme.nixosModules.default
 
           # Nix-Flatpak
           nix-flatpak.nixosModules.nix-flatpak
@@ -89,7 +95,6 @@
 
           # Nix User Repo enabling
           nur.modules.nixos.default
-
 
           # Home Manager
           home-manager.nixosModules.default
