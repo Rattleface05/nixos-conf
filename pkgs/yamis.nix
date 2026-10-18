@@ -1,7 +1,7 @@
 { stdenvNoCC, fetchurl }:
 let
   pname = "yet-another-monochrome-icon-set";
-  version = "227359b"; # v1.5.9
+  version = "b072e59"; # v1.6.0
 
   src = fetchurl {
     url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/${version}.tar.gz";

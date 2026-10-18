@@ -68,7 +68,7 @@ in
     efi.canTouchEfiVariables = true;
 
   };
-  # Use CachyOS kernel.
+  #  Use CachyOS kernel.
   boot = {
     # For Non-LTO kernels
     kernelPackages = pkgs.linuxKernel.packagesFor kernel;
@@ -159,7 +159,6 @@ in
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     plasma-browser-integration
     konsole
-    kwin-x11
   ];
 
   # Configure keymap in X11
