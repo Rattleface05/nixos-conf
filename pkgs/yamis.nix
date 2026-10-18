@@ -5,7 +5,7 @@ let
 
   src = fetchurl {
     url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/${version}.tar.gz";
-    sha256 = "sha256-NGAebrQgn8rBcokT/iPyYexUl/0O/Zy57mLvO/GsMTk=";
+    sha256 = "sha256-eWWEBKce+7WeY+elUmR+GrklhIsoheLAvNUP9j91AQc=";
   };
 in
 stdenvNoCC.mkDerivation {
