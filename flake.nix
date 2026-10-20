@@ -8,7 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
+      inputs.nixpkgs.follows = "nixpkgs";
+
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -71,11 +75,11 @@
           {
             nixpkgs.overlays = [
               # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-              nix-cachyos-kernel.overlays.pinned
+              # nix-cachyos-kernel.overlays.pinned
 
               # Alternatively, use nixpkgs from your environment, nixpkgs.config will apply.
               # Note: may not hit binary cache; kernel will need to be built locally.
-              # nix-cachyos-kernel.overlays.default
+              nix-cachyos-kernel.overlays.default
 
               # Only use one of the two overlays!
             ];
