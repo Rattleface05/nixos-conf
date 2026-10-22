@@ -208,8 +208,10 @@
         "type": "github"
       },
       "original": {
+        "narHash": "sha256-Lu/mirx0OQndYSEPqh7DlhFWUiq9LNzZb/1ephyBqa0=",
         "owner": "xddxdd",
         "repo": "nix-cachyos-kernel",
+        "rev": "1d8d2f0c10641bf5d424d4b09996cd9e84538833",
         "type": "github"
       }
     },
@@ -285,11 +287,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792682611,
-        "narHash": "sha256-w6zfycVWKF4W7v1fuTeiLU4A+QN8reezPy1/DaAdTXc=",
+        "lastModified": 1792685021,
+        "narHash": "sha256-W+sS7hdc8YZGJq5haeugHRuOA/+vLyL8eWY6/1WGdyg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1706e70aa4cf9ee45cbc87652f331d9e5078bbc7",
+        "rev": "197bb86bc28de3181f53e0bfa303a84fd1e1d80c",
         "type": "github"
       },
       "original": {
