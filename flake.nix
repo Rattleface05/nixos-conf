@@ -2,7 +2,7 @@
   description = "NixOS configuration with CachyOS kernel";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/41e143a332d88d45c6149bfea9e62a4aea07bff5?narHash=sha256-33rs%2BOXTYF2PUYULx%2BTN4f4gE6eLiKesIge59V2BZW4%3D";
 
     kwin-effects-better-blur-dx = {
       url = "github:xarblu/kwin-effects-better-blur-dx";
