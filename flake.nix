@@ -35,6 +35,8 @@
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
 
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +54,7 @@
       lazyvim,
       aagl,
       minegrub-theme,
+      nix-vscode-extensions,
       ...
     }@inputs:
     {
@@ -95,6 +98,13 @@
             programs.honkers-launcher.enable = false;
             programs.wavey-launcher.enable = false;
             programs.sleepy-launcher.enable = true;
+          }
+
+          # Nix VS Code Extensions
+          {
+            nixpkgs.overlays = [
+              nix-vscode-extensions.overlays.default
+            ];
           }
 
           # Nix User Repo enabling

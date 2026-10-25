@@ -159,6 +159,60 @@
     steamPackage = osConfig.programs.steam.package;
   };
 
+  # VS Code
+  programs.vscode = {
+    enable = true;
+    profiles.default.extensions =
+      (with pkgs.vscode-extensions; [
+        # C++ Extension Pack
+        ms-vscode.cpptools-extension-pack
+        ms-vscode.cpptools
+        # ms-vscode.cpp-devtools
+        # ms-vscode.cpptools-themes
+        ms-vscode.cmake-tools
+
+        ms-azuretools.vscode-containers
+
+        # Java
+        vscjava.vscode-java-pack
+        redhat.java
+        vscjava.vscode-java-debug
+        vscjava.vscode-maven
+        vscjava.vscode-java-test
+        vscjava.vscode-java-dependency
+        vscjava.vscode-gradle
+
+        # Jupyter
+        ms-toolsai.jupyter
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.jupyter-renderers
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+
+        # Python
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-python.debugpy
+        ms-python.vscode-python-envs
+
+        rust-lang.rust-analyzer
+        tomoki1207.pdf
+        jnoortheen.nix-ide
+      ])
+      ++ (with pkgs.nix-vscode-extensions.vscode-marketplace; [
+        dtoplak.vscode-glsllint
+
+        # Haskell Extension Pack
+        mogeko.haskell-extension-pack
+        haskell.haskell
+        hoovercj.haskell-linter
+
+        ms-vscode.cpp-devtools
+        ms-vscode.cpptools-themes
+        slevesque.shader
+      ]);
+  };
+
   # BASH
   programs.bash = {
     enable = true;
