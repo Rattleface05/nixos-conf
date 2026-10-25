@@ -2,7 +2,7 @@
   description = "NixOS configuration with CachyOS kernel";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/41e143a332d88d45c6149bfea9e62a4aea07bff5?narHash=sha256-33rs%2BOXTYF2PUYULx%2BTN4f4gE6eLiKesIge59V2BZW4%3D";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     kwin-effects-better-blur-dx = {
       url = "github:xarblu/kwin-effects-better-blur-dx";
@@ -10,9 +10,8 @@
     };
 
     nix-cachyos-kernel = {
-      url = "github:xddxdd/nix-cachyos-kernel/1d8d2f0c10641bf5d424d4b09996cd9e84538833?narHash=sha256-Lu/mirx0OQndYSEPqh7DlhFWUiq9LNzZb/1ephyBqa0%3D";
-      inputs.nixpkgs.follows = "nixpkgs";
-
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -76,11 +75,11 @@
           {
             nixpkgs.overlays = [
               # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-              # nix-cachyos-kernel.overlays.pinned
+              nix-cachyos-kernel.overlays.pinned
 
               # Alternatively, use nixpkgs from your environment, nixpkgs.config will apply.
               # Note: may not hit binary cache; kernel will need to be built locally.
-              nix-cachyos-kernel.overlays.default
+              # nix-cachyos-kernel.overlays.default
 
               # Only use one of the two overlays!
             ];
