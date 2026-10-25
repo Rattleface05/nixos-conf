@@ -49,9 +49,6 @@ in
   # Use CachyOS kernel.
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
 
-  nix.settings.extra-substituters = [ "https://cache.lantian.pub/lantian" ];
-  nix.settings.extra-trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
-
   # Xanmod kernel
   # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 

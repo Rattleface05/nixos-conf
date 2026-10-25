@@ -29,6 +29,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    deadlock-mod-manager.url = "github:deadlock-mod-manager/deadlock-mod-manager";
+
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
 
     nix-flatpak = {
@@ -53,6 +55,7 @@
       home-manager,
       lazyvim,
       aagl,
+      deadlock-mod-manager,
       minegrub-theme,
       nix-vscode-extensions,
       ...
@@ -85,7 +88,12 @@
               # nix-cachyos-kernel.overlays.default
 
               # Only use one of the two overlays!
+
             ];
+
+            nix.settings.extra-substituters = [ "https://cache.lantian.pub/lantian" ];
+            nix.settings.extra-trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
+
           }
 
           # Anime Team config
@@ -105,6 +113,16 @@
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
             ];
+          }
+
+          # Deadlock Mod Manager cache
+          {
+            nix.settings = {
+              extra-substituters = [ "https://deadlock-mod-manager.cachix.org" ];
+              extra-trusted-public-keys = [
+                "deadlock-mod-manager.cachix.org-1:wUjtzL6yN2i9zTq1YrXHBr0mx3LP7tBGsosk3N+/A/M="
+              ];
+            };
           }
 
           # Nix User Repo enabling

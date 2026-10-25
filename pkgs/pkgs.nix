@@ -95,7 +95,7 @@
     pipx
     ani-cli
     yt-dlp
-    deadlock-mod-manager
+    inputs.deadlock-mod-manager.packages.${pkgs.system}.default
     mangohud
     lutris
     pipes-rs
