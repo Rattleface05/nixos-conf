@@ -31,7 +31,6 @@ let
     </mime-info>
   '';
 
-  # Fetch the GitHub repository for assets (icons, licenses)
   srcAsset = fetchFromGitHub {
     owner = "ValveResourceFormat";
     repo = "ValveResourceFormat";
@@ -39,7 +38,6 @@ let
     sha256 = "sha256-GgDRWrZKqAaWL145r6sAqPA31B8KmqW9XlxG75vzESM=";
   };
 
-  # Fetch the precompiled Windows executable from GitHub releases
   exeSrc = fetchurl {
     url = "https://github.com/ValveResourceFormat/ValveResourceFormat/releases/download/${version}/Source2Viewer.exe";
     sha256 = "sha256-jRFJUW4/lz4fDXOqSnO3ZNP2u0TZO6S0F/jTSvKi9nA=";
@@ -126,6 +124,6 @@ stdenv.mkDerivation {
       cc-by-25
     ];
     platforms = [ "x86_64-linux" ];
-    maintainers = with maintainers; [ ];
+    maintainers = [ ];
   };
 }
