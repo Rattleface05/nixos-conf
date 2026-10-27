@@ -43,107 +43,112 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Dendritic Nix
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nix-cachyos-kernel,
-      nix-flatpak,
-      nur,
-      home-manager,
-      lazyvim,
-      aagl,
-      deadlock-mod-manager,
-      minegrub-theme,
-      nix-vscode-extensions,
-      ...
-    }@inputs:
-    {
+  # outputs =
+  #   {
+  #     self,
+  #     nixpkgs,
+  #     nix-cachyos-kernel,
+  #     nix-flatpak,
+  #     nur,
+  #     home-manager,
+  #     lazyvim,
+  #     aagl,
+  #     deadlock-mod-manager,
+  #     minegrub-theme,
+  #     nix-vscode-extensions,
+  #     ...
+  #   }@inputs:
+  #   {
 
-      nixosConfigurations.cratita = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  #     nixosConfigurations.cratita = nixpkgs.lib.nixosSystem {
+  #       system = "x86_64-linux";
 
-        specialArgs = { inherit inputs; };
+  #       specialArgs = { inherit inputs; };
 
-        modules = [
-          # Your normal NixOS configuration
-          ./configuration.nix
+  #       modules = [
+  #         # Your normal NixOS configuration
+  #         ./configuration.nix
 
-          # Minegrub
-          minegrub-theme.nixosModules.default
+  #         # Minegrub
+  #         minegrub-theme.nixosModules.default
 
-          # Nix-Flatpak
-          nix-flatpak.nixosModules.nix-flatpak
+  #         # Nix-Flatpak
+  #         nix-flatpak.nixosModules.nix-flatpak
 
-          # CachyOS kernel overlay
-          {
-            nixpkgs.overlays = [
-              # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-              nix-cachyos-kernel.overlays.pinned
+  #         # CachyOS kernel overlay
+  #         {
+  #           nixpkgs.overlays = [
+  #             # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
+  #             nix-cachyos-kernel.overlays.pinned
 
-              # Alternatively, use nixpkgs from your environment, nixpkgs.config will apply.
-              # Note: may not hit binary cache; kernel will need to be built locally.
-              # nix-cachyos-kernel.overlays.default
+  #             # Alternatively, use nixpkgs from your environment, nixpkgs.config will apply.
+  #             # Note: may not hit binary cache; kernel will need to be built locally.
+  #             # nix-cachyos-kernel.overlays.default
 
-              # Only use one of the two overlays!
+  #             # Only use one of the two overlays!
 
-            ];
+  #           ];
 
-            nix.settings.extra-substituters = [ "https://cache.lantian.pub/lantian" ];
-            nix.settings.extra-trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
+  #           nix.settings.extra-substituters = [ "https://cache.lantian.pub/lantian" ];
+  #           nix.settings.extra-trusted-public-keys = [ "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ=" ];
 
-          }
+  #         }
 
-          # Anime Team config
-          {
-            imports = [ aagl.nixosModules.default ];
-            nix.settings = aagl.nixConfig; # Set up Cachix
-            programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
-            programs.anime-games-launcher.enable = false;
-            programs.honkers-railway-launcher.enable = true;
-            programs.honkers-launcher.enable = false;
-            programs.wavey-launcher.enable = false;
-            programs.sleepy-launcher.enable = true;
-          }
+  #         # Anime Team config
+  #         {
+  #           imports = [ aagl.nixosModules.default ];
+  #           nix.settings = aagl.nixConfig; # Set up Cachix
+  #           programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
+  #           programs.anime-games-launcher.enable = false;
+  #           programs.honkers-railway-launcher.enable = true;
+  #           programs.honkers-launcher.enable = false;
+  #           programs.wavey-launcher.enable = false;
+  #           programs.sleepy-launcher.enable = true;
+  #         }
 
-          # Nix VS Code Extensions
-          {
-            nixpkgs.overlays = [
-              nix-vscode-extensions.overlays.default
-            ];
-          }
+  #         # Nix VS Code Extensions
+  #         {
+  #           nixpkgs.overlays = [
+  #             nix-vscode-extensions.overlays.default
+  #           ];
+  #         }
 
-          # Deadlock Mod Manager cache
-          {
-            nix.settings = {
-              extra-substituters = [ "https://deadlock-mod-manager.cachix.org" ];
-              extra-trusted-public-keys = [
-                "deadlock-mod-manager.cachix.org-1:wUjtzL6yN2i9zTq1YrXHBr0mx3LP7tBGsosk3N+/A/M="
-              ];
-            };
-          }
+  #         # Deadlock Mod Manager cache
+  #         {
+  #           nix.settings = {
+  #             extra-substituters = [ "https://deadlock-mod-manager.cachix.org" ];
+  #             extra-trusted-public-keys = [
+  #               "deadlock-mod-manager.cachix.org-1:wUjtzL6yN2i9zTq1YrXHBr0mx3LP7tBGsosk3N+/A/M="
+  #             ];
+  #           };
+  #         }
 
-          # Nix User Repo enabling
-          nur.modules.nixos.default
+  #         # Nix User Repo enabling
+  #         nur.modules.nixos.default
 
-          # Home Manager
-          home-manager.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              backupFileExtension = "-backup";
-              users.dumi = import ./home/home.nix;
+  #         # Home Manager
+  #         home-manager.nixosModules.default
+  #         {
+  #           home-manager = {
+  #             useGlobalPkgs = true;
+  #             useUserPackages = true;
+  #             extraSpecialArgs = { inherit inputs; };
+  #             backupFileExtension = "-backup";
+  #             users.dumi = import ./home/home.nix;
 
-            };
-          }
+  #           };
+  #         }
 
-        ];
-      };
+  #       ];
+  #     };
 
-    };
+  #   };
 
+  # Dendritic outputs
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
