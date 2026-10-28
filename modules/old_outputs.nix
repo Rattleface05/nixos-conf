@@ -1,19 +1,19 @@
-{ inputs, self, ... }: {
-  flake.nixosModules.old_outputs = { pkgs, ... }: {
+{ ... }: {
+  flake.nixosModules.old_outputs = { inputs, ... }: {
     # system = "x86_64-linux";
 
-    modules = [
+    imports = [
       # Minegrub
-      self.minegrub-theme.nixosModules.default
+      inputs.minegrub-theme.nixosModules.default
 
       # Nix-Flatpak
-      self.nix-flatpak.nixosModules.nix-flatpak
+      inputs.nix-flatpak.nixosModules.nix-flatpak
 
       # CachyOS kernel overlay
       {
         nixpkgs.overlays = [
           # Use the exact nixpkgs revision as defined in this repo to ensure binary cache hits.
-          self.nix-cachyos-kernel.overlays.pinned
+          inputs.nix-cachyos-kernel.overlays.pinned
 
           # Alternatively, use nixpkgs from your environment, nixpkgs.config will apply.
           # Note: may not hit binary cache; kernel will need to be built locally.
@@ -30,8 +30,8 @@
 
       # Anime Team config
       {
-        imports = [ self.aagl.nixosModules.default ];
-        nix.settings = self.aagl.nixConfig; # Set up Cachix
+        imports = [ inputs.aagl.nixosModules.default ];
+        nix.settings = inputs.aagl.nixConfig; # Set up Cachix
         programs.anime-game-launcher.enable = true; # Adds launcher and /etc/hosts rules
         programs.anime-games-launcher.enable = false;
         programs.honkers-railway-launcher.enable = true;
@@ -43,7 +43,7 @@
       # Nix VS Code Extensions
       {
         nixpkgs.overlays = [
-          self.nix-vscode-extensions.overlays.default
+          inputs.nix-vscode-extensions.overlays.default
         ];
       }
 
@@ -58,20 +58,20 @@
       }
 
       # Nix User Repo enabling
-      self.nur.modules.nixos.default
+      inputs.nur.modules.nixos.default
 
       # Home Manager
-      self.home-manager.nixosModules.default
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          backupFileExtension = "-backup";
-          users.dumi = import ./home/_home.nix;
+      # inputs.home-manager.nixosModules.default
+      # {
+      #   home-manager = {
+      #     useGlobalPkgs = true;
+      #     useUserPackages = true;
+      #     extraSpecialArgs = { inherit inputs; };
+      #     backupFileExtension = "-backup";
+      #     users.dumi = import ./home/_home.nix;
 
-        };
-      }
+      #   };
+      # }
 
     ];
   };

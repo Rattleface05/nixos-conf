@@ -1,4 +1,5 @@
 {
+  lib,
   osConfig,
   config,
   pkgs,
