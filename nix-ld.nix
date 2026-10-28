@@ -102,7 +102,8 @@
       freeglut
       libjpeg
       libpng
-      libpng12
+      #removed
+      #libpng12
       libsamplerate
       libmikmod
       libtheora
