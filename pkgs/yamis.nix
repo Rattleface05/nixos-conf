@@ -1,11 +1,11 @@
 { stdenvNoCC, fetchurl }:
 let
   pname = "yet-another-monochrome-icon-set";
-  version = "b072e59"; # v1.6.0
+  version = "ba9ce22"; # v1.6.1
 
   src = fetchurl {
     url = "https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/${version}.tar.gz";
-    sha256 = "sha256-eWWEBKce+7WeY+elUmR+GrklhIsoheLAvNUP9j91AQc=";
+    sha256 = "sha256-YmXVHRG6acR72QvqYWOdmUjZOfdao6UZv3/QyJalCVk=";
   };
 in
 stdenvNoCC.mkDerivation {
