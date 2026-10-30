@@ -13,7 +13,7 @@
 }:
 
 let
-  version = "20.0";
+  version = "20.1";
 
   # for very nice desktop integration
   mimeFile = pkgs.writeText "source2viewer.xml" ''
@@ -40,7 +40,7 @@ let
 
   exeSrc = fetchurl {
     url = "https://github.com/ValveResourceFormat/ValveResourceFormat/releases/download/${version}/Source2Viewer.exe";
-    sha256 = "sha256-jRFJUW4/lz4fDXOqSnO3ZNP2u0TZO6S0F/jTSvKi9nA=";
+    sha256 = "sha256-tBsoxuo9kmD3ErmE8DgiWabVfx4N/3xcj7GxdUMvO8s=";
   };
 in
 stdenv.mkDerivation {

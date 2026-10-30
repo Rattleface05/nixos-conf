@@ -37,8 +37,10 @@
         "type": "github"
       },
       "original": {
+        "narHash": "sha256-zrRiRwIn5QSfMz8+GqLTawmEA8QllEwVBIU8Cxsuwso=",
         "owner": "deadlock-mod-manager",
         "repo": "deadlock-mod-manager",
+        "rev": "61e36bc5c24eeb6fe77744e733f4ce754ba37429",
         "type": "github"
       }
     },
