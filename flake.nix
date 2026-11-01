@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deadlock-mod-manager.url = "github:deadlock-mod-manager/deadlock-mod-manager/61e36bc5c24eeb6fe77744e733f4ce754ba37429?narHash=sha256-zrRiRwIn5QSfMz8%2BGqLTawmEA8QllEwVBIU8Cxsuwso%3D";
+    deadlock-mod-manager.url = "github:deadlock-mod-manager/deadlock-mod-manager/92bebec63fd27145551a22c88d29f1d8e74d746b?narHash=sha256-Gbu/VwDe49kt2Q0TQuzxZOva2eI6glr/t6DCcOycnDk%3D";
 
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
 

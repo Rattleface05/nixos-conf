@@ -29,18 +29,18 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1793386476,
-        "narHash": "sha256-zrRiRwIn5QSfMz8+GqLTawmEA8QllEwVBIU8Cxsuwso=",
+        "lastModified": 1793569668,
+        "narHash": "sha256-Gbu/VwDe49kt2Q0TQuzxZOva2eI6glr/t6DCcOycnDk=",
         "owner": "deadlock-mod-manager",
         "repo": "deadlock-mod-manager",
-        "rev": "61e36bc5c24eeb6fe77744e733f4ce754ba37429",
+        "rev": "92bebec63fd27145551a22c88d29f1d8e74d746b",
         "type": "github"
       },
       "original": {
-        "narHash": "sha256-zrRiRwIn5QSfMz8+GqLTawmEA8QllEwVBIU8Cxsuwso=",
+        "narHash": "sha256-Gbu/VwDe49kt2Q0TQuzxZOva2eI6glr/t6DCcOycnDk=",
         "owner": "deadlock-mod-manager",
         "repo": "deadlock-mod-manager",
-        "rev": "61e36bc5c24eeb6fe77744e733f4ce754ba37429",
+        "rev": "92bebec63fd27145551a22c88d29f1d8e74d746b",
         "type": "github"
       }
     },
@@ -273,11 +273,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1793337500,
-        "narHash": "sha256-r5ZNgu58In9a700Ov3BdozWjx9r968jiIG0Ypk/Sud8=",
+        "lastModified": 1793510715,
+        "narHash": "sha256-JzQi1UkhQ+LTRDikDe/WRVWWjMKUb6N6M7rvzbUaIhw=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "fbcca350aef2cf06e98624be6cd8d7148305c7b7",
+        "rev": "70a6f36857a37163337d4a9cbeebc477b43861df",
         "type": "github"
       },
       "original": {
@@ -389,11 +389,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793397340,
-        "narHash": "sha256-A+kd/KW33zG1GBa3oY0eq4FVZWOoWe4SMb6/PFNp8K4=",
+        "lastModified": 1793572039,
+        "narHash": "sha256-qFXxw5vbtvd+NDWUgiflEsVfEg2kuuAcMkyYaRSGr6c=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "b78faba2aeba49cfd72e9238af7548810c0b2f0e",
+        "rev": "27999dd34da70ca2db0fc8cebd10618ad36d4da9",
         "type": "github"
       },
       "original": {
