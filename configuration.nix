@@ -263,6 +263,12 @@
   # Nix LSP stuff
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
+  nixpkgs.config = {
+    problems.handlers = {
+      "gtk+".broken = "warn"; # or "ignore"
+    };
+  };
+
   # Turn off firmware updates
   # services.fwupd.enable = false;
 
