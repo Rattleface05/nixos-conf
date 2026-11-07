@@ -223,4 +223,9 @@
     bashrcExtra = builtins.readFile ./.bashrc;
   };
 
+  programs.nix-index = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
 }
