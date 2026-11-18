@@ -73,10 +73,10 @@
                   nixpkgs = {
                     expr = "import <nixpkgs> { }";
                   };
-
                   formatting = {
-                    command = [ "nixfmt" "-"];
+                    command = [ ];
                   };
+
                 };
               };
             };
@@ -89,15 +89,18 @@
         };
       };
 
-    conform = inputs.lazyvim.lib.lazyConfig {
+      conform = inputs.lazyvim.lib.lazyConfig {
         plugin = "stevearc/conform.nvim";
+
+        lazy = false;
+
         opts = {
-          formatters = {
-            nixfmt = {
-              command = "nixfmt";
-              args = [ "-" ];
-              stdin = true;
-            };
+          formatters_by_ft = {
+            nix = [ "nixfmt" ];
+          };
+
+          default_format_opts = {
+            lsp_format = "never";
           };
         };
       };
