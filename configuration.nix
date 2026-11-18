@@ -261,7 +261,7 @@
   # nix.settings.max-jobs = 2;
 
   # Nix LSP stuff
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  # nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   nixpkgs.config = {
     problems.handlers = {

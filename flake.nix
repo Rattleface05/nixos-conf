@@ -21,7 +21,6 @@
 
     lazyvim = {
       url = "github:pfassina/lazyvim-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     aagl = {
@@ -29,12 +28,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    deadlock-mod-manager.url = "github:deadlock-mod-manager/deadlock-mod-manager/92bebec63fd27145551a22c88d29f1d8e74d746b?narHash=sha256-Gbu/VwDe49kt2Q0TQuzxZOva2eI6glr/t6DCcOycnDk%3D";
-
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
 
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
@@ -55,9 +57,9 @@
       home-manager,
       lazyvim,
       aagl,
-      deadlock-mod-manager,
       minegrub-theme,
       nix-vscode-extensions,
+      nix-index-database,
       ...
     }@inputs:
     {
@@ -140,6 +142,9 @@
 
             };
           }
+
+          #Nix-index database
+          nix-index-database.nixosModules.default
 
         ];
       };

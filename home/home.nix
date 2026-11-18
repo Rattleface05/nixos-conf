@@ -18,6 +18,10 @@
   programs.lazyvim = {
     enable = true;
 
+    config.options = ''
+      vim.g.trouble_lualine = false
+    '';
+
     extras = {
       lang = {
         nix.enable = true;
@@ -71,7 +75,7 @@
                   };
 
                   formatting = {
-                    command = [ "nixfmt" ];
+                    command = [ "nixfmt" "-"];
                   };
                 };
               };
@@ -84,6 +88,20 @@
           };
         };
       };
+
+    conform = inputs.lazyvim.lib.lazyConfig {
+        plugin = "stevearc/conform.nvim";
+        opts = {
+          formatters = {
+            nixfmt = {
+              command = "nixfmt";
+              args = [ "-" ];
+              stdin = true;
+            };
+          };
+        };
+      };
+
       snacks = inputs.lazyvim.lib.lazyConfig {
         plugin = "folke/snacks.nvim";
         opts = {
@@ -130,10 +148,10 @@
 
     ];
 
-    treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
-      lua
-      nix
-    ];
+    # treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+    #   lua
+    #   nix
+    # ];
   };
 
   # TLDR tealdeer implementation
@@ -221,11 +239,6 @@
       "flake-update" = "sudo nix flake update --flake $HOME/nixos-conf/";
     };
     bashrcExtra = builtins.readFile ./.bashrc;
-  };
-
-  programs.nix-index = {
-    enable = true;
-    enableBashIntegration = true;
   };
 
 }
